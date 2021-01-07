@@ -116,7 +116,6 @@ psych::describe(as.numeric(unlist(academic[varInterest][1])))
 
 Hmisc::describe(academic[varInterest][1])
 
-
 pastecs::stat.desc(academic[varInterest][1], basic=F)
 ```
 
@@ -202,7 +201,7 @@ FSA::perc(as.numeric(zmaths), 3.29, "gt")
 pastecs::stat.desc(academic$MAT_S11, basic=F)
 ```
 *Report of normality:*
-Maths score was assessed for normality. Visual inspection of the histogram and QQ-Plot did not exhibhit any issues with skewness and kurtosis. The standardized score for skewness(18.17) is not within acceptable range and the standardized score for kurtosis (2.95) was can be considered acceptable using the criteria proposed by West, Finch and Curran (1996).  All the datapoints of standardized scores for mathematics fall within the bounds +/- 3.29, using  the guidance of Field, Miles and Field (2013) the data can be considered to be a normal distribution (m=63.32, sd=11.87, n=12411).
+Maths score was assessed for normality. Visual inspection of the histogram and QQ-Plot did not exhibit any issues with skewness and kurtosis. The standardized score for skewness(18.17) and standardized score for kurtosis (2.95) are not within acceptable range using the criteria proposed by West, Finch and Curran (1996).  All the data points of standardized scores for mathematics fall within the bounds +/- 3.29, using the guidance of Field, Miles and Field (2013) the data can be considered to be a normal distribution (m=63.32, sd=11.87, n=12411).
 
 
 **Correlation**
@@ -240,7 +239,7 @@ FSA::perc(as.numeric(zmaths), 3.29, "gt")
 pastecs::stat.desc(academic$BIO_S11, basic=F)
 ```
 *Report of normality:*
-Biology score was assessed for normality. Visual inspection of the histogram and QQ-Plot did not exhibhit any issues with skewness and kurtosis. The standardized score for skewness(5.78) and standardized score for kurtosis () is not within acceptable range 99.97% the datapoints of standardized scores for biology fall within the bounds +/- 3.29, using  the guidance of Field, Miles and Field (2013) the data can be considered to be a normal distribution (m=63.95, sd=11.15, n=12412).
+Biology score was assessed for normality. Visual inspection of the histogram and QQ-Plot did not exhibit any issues with skewness and kurtosis. The standardized score for skewness(5.78) and standardized score for kurtosis () is not within acceptable range 99.97% the datapoints of standardized scores for biology fall within the bounds +/- 3.29, using the guidance of Field, Miles and Field (2013) the data can be considered to be a normal distribution (m=63.95, sd=11.15, n=12412).
 
 
 Since both the variables are normally distributed Pearson correlation is considered. 
@@ -301,7 +300,7 @@ pastecs::stat.desc(academic$WC_PRO, basic=F)
 
 ```
 *Reporting normality*
-Written communication score was assessed for normality. Visual inspection of the histogram and QQ-Plot did  exhibhit issues with skewness and kurtosis. The standardized score for skewness(-8.13)  and standardised score  kurtosis (-27.38) is not within acceptable range. All the datapoints of standardized scores for written communication fall within the bounds +/- 3.29, using  the guidance of Field, Miles and Field (2013) the data can be considered to be a normal distribution (m=53.7, sd=30, n=12411).
+Written communication score was assessed for normality. Visual inspection of the histogram and QQ-Plot did exhibit issues with skewness and kurtosis. The standardized score for skewness(-8.13)  and standardised score for kurtosis (-27.38) is not within the acceptable range. All the data points of standardized scores for written communication fall within the bounds +/- 3.29, using the guidance of Field, Miles and Field (2013) the data can be considered to be a normal distribution (m=53.7, sd=30, n=12411).
 
 
 Identifying the correlation between mathematics and written communication score
@@ -378,7 +377,7 @@ abline(lm(y ~ x, data = academic), col = "blue")
 cor.test(as.numeric(unlist(academic[varInterest][4])), as.numeric(unlist(academic[varInterest][5])), method = "pearson")
 ```
 *Reporting correlation*
-The relationship between global score score and percentile was investigated using a Pearson correlation. A very strong positive correlation was found (r =0.96, n=12409, p < .05).
+The relationship between global score and percentile was investigated using a Pearson correlation. A very strong positive correlation was found (r =0.96, n=12409, p < .05).
 
 
 **Difference test involving 2 groups**
@@ -412,7 +411,7 @@ effes
 
 *Reporting difference test*
 ```
-An independent-samples t-test was conducted to compare global score for respondents who have TV and those who are do not have TV Significance difference in the scores for global score who have TV (M=163.97, SD=22.94 for respondents who have TV, M=163.97, SD=22.94 for respondents who do not have TV), (t(`r res$parameter`)= `r round(res$statistic,3)`, p = `r round(res$p.value,2)`. Cohen's d also indicated a very small effect size (`r effcd`).
+An independent-samples t-test was conducted to compare global score for respondents who have TV and those who are do not have TV Significance difference in the scores for global score who have TV (M=163.97, SD=22.94 for respondents who have TV, M=155.46, SD=22.74 for respondents who do not have TV), (t(`r res$parameter`)= `r round(res$statistic,3)`, p = `r round(res$p.value,2)`. Cohen's d also indicated a very small effect size (`r effcd`).
 ```
 
 Difference test for Revenue:
@@ -442,7 +441,6 @@ aoveta<-sjstats::eta_sq(res2)[2]
 
 
 A one-way between-groups analysis of variance (ANOVA) was conducted to explore the impact of global score on levels of revenue, as measured by the Life orientation Test (LOT). Participants were divided into eight groups according to their revenue (Group 1: 0 ; Group 2: 10 or more LMMW ; Group 3: Between 1 and less than 2 LMMW ; Group 4: Between 2 and less than 3 LMMW ; Group 5: Between 3 and less than 5 LMMW ; Group 6: Between 5 and less than 7 LMMW; Group 7: Between 7 and less than 10 LMMW ; Group 8: less than 1 LMMW). There was a statistically significant difference at the p < .05 level in global scores for the eight revenue groups: (F(2, `r round(res2$df.residual,2)`)= `r round(fstat,2)`, p<0.05. Despite reaching statistical significance, the actual difference in mean scores between groups was quite small. The effect size, calculated using eta squared was (`r round(aoveta[[1]],2)`). Post-hoc comparisons using the Tukey HSD test indicated that the mean score for Group 1, Group 2, Group  3 and Group 5 were significantly different from each other. Group 1 and Group 4, Group 3 and Group 8, Group 5 and Group 6, Group 2 and Group 8 did not differ significantly from each other. 
-
 
 
 
@@ -506,10 +504,10 @@ plot(density(resid(model1)))
 
 car::qqPlot(model1, main="QQ Plot") #qq plot for studentized resid
 
-#Calculate Collinearity
+#Collinearity
 vifmodel<-car::vif(model1)
 vifmodel
-#Calculate tolerance
+#tolerance
 1/vifmodel
 ```
 
@@ -562,7 +560,8 @@ head(academic[influential, ]$WC_PRO)
 car::outlierTest(model2) 
 #Observations 1336, 7721 are outliers 
 
-car::leveragePlots(model1) # leverage plots
+car::leveragePlots(model2) # leverage plots
+
 
 plot(model2,1)
 #Red line is horizontally drawn near 0, it indicates the presence of linear model. 
@@ -578,13 +577,13 @@ plot(density(resid(model1)))
 car::qqPlot(model1, main="QQ Plot") #qq plot for studentized resid
 
 #Collinearity
-vifmodel<-car::vif(model1)
+vifmodel<-car::vif(model2)
 vifmodel
 #tolerance
 1/vifmodel
 ```
 
-Differential effect
+Differential effect : Adding a term TV to understand differential effect. 
 
 Build linear regression model3 - Outcome variable: Global score ; Predictors: Mathematics, WC_PRO, Revenue and TV
 
@@ -593,98 +592,120 @@ H1: There is a relationship between global score and mathematics score, written 
 
 
 ```{r}
-#Model 3 adding in Fresh 
-#dummycode gender
+#Model 3 adding in TV 
 academic$tvf=ifelse(academic$TV == "Yes", 1, ifelse(academic$TV == "No", 0, NA))
 
-model3=lm(academic$G_SC~academic$MAT_S11+academic$BIO_S11+academic$rv+academic$tvf)
+model3=lm(academic$G_SC~academic$MAT_S11+academic$WC_PRO+academic$rv+academic$tvf)
 
 summary(model3)
 
 anova(model3)
 ```
 *Reporting*
-Multiple linear regression was carried out to investigate the relationship between mathematics score, written communication score, revenue, TV and global score. There was a significant relationship between mathematics score and global score (p < .001), written communication and global score (p < .001), TV and revenue and global score( p < .001). A significant regression equation was found (F(9,12401)= 2144, p < .05), with R2 of 0.6. Mathematics score,  written communication score and revenue are significant predictors of global score. 
+Multiple linear regression was carried out to investigate the relationship between mathematics score, written communication score, revenue, TV and global score. There was a significant relationship between mathematics score and global score (p < .001), written communication and global score (p < .001), TV and revenue and global score( p < .001). A significant regression equation was found (F(4,12406)= 3001, p < .05), with R2 of 0.6. Mathematics score,  written communication score and revenue are significant predictors of global score. 
 
 
 ```{r}
-
-plot(model3)#Will output a number of plots including those needed for checking homocedasticity (the first and third)
-
 #Influential Outliers - Cook's distance
 cooksd<-sort(cooks.distance(model3))
-# plot Cook's distance
-plot(cooksd, pch="*", cex=2, main="Influential Obs by Cooks distance")  
-abline(h = 4*mean(cooksd, na.rm=T), col="red")  # add cutoff line
-text(x=1:length(cooksd)+1, y=cooksd, labels=ifelse(cooksd>4*mean(cooksd, na.rm=T),names(cooksd),""), col="red")  # add labels
+
+#Cook's distance
+plot(cooksd, pch="*", cex=2, main="Influential Obsservations by Cooks distance")  
+abline(h = 4*mean(cooksd, na.rm=T), col="red")  
+text(x=1:length(cooksd)+1, y=cooksd, labels=ifelse(cooksd>4*mean(cooksd, na.rm=T),names(cooksd),""), col="red")  
 
 
-#find rows related to influential observations
-influential <- as.numeric(names(cooksd)[(cooksd > 4*mean(cooksd, na.rm=T))])  # influential row numbers
+sum((cooks.distance(model2))>4*mean(cooksd))
+#195
+#There are only 195 outliers in the dataset i.e. 0.015% of the entire population.   
+
+influential <- as.numeric(names(cooksd)[(cooksd > 4*mean(cooksd, na.rm=T))])  
 stem(influential)
 head(academic[influential, ])  # influential observations.
+head(academic[influential, ]$G_SC)  
+#228 224 102 183 196 203 are influential observations of global score
+head(academic[influential, ]$MAT_S11) 
+#81 89 57 68 55 79 are influential observations of maths
+head(academic[influential, ]$WC_PRO)  
+#100  94   0  88  96  89 are influntial observations of written communication
 
-
-car::outlierTest(model3) # Bonferonni p-value for most extreme obs - Are there any cases where the outcome variable has an unusual variable for its predictor values?
+car::outlierTest(model3) 
+#1336, 12376, 7721, 3718, 6980 are the outcome variables that have unusual variables for its predictor values. 
 
 car::leveragePlots(model3) # leverage plots
 
+plot(model3,1)
+#Red line is horizontally drawn near 0, it indicates the presence of linear model. 
 
+#Homocedasticity 
+plot(model3, 3)
+#These plot helps us to identify the homoscedasticity of the model. Since the data is not completely random distribution of points throughout the range of X axis and flat red line, we can conclude that graph is homoscedasticity.
+#Also, the plot has horizontal line with equally spread of observations. 
 
-#Create histogram and a density plot of the residuals
+#Create histogram and  density plot of the residuals
 plot(density(resid(model3))) 
 
-#Create a QQ plot qPlot(model, main="QQ Plot") #qq plot for studentized resid 
-car::qqPlot(model3, main="QQ Plot Model 3") #qq plot for studentized resid
-
-
+car::qqPlot(model3, main="QQ Plot") #qq plot for studentized resid
 
 #Collinearity
 vifmodel<-car::vif(model3)
 vifmodel
-#Tolerance
+#tolerance
 1/vifmodel
 ```
 
-## Model 4: Including an interaction term to investigate an interaction effect for gender and stress
-```{r}
-#Model 4 adding in interaction term gender*stress
-#create interaction term
 
+
+Interaction effect:
+Adding a term TV * MAT_S11 to understand interaction effect. 
+
+Build linear regression model4 - Outcome variable: Global score ; Predictors: Mathematics, WC_PRO, Revenue, TV, (TV*MAT_S11)
+
+H0: There is no relationship between global score and mathematics score, written communication score, revenue, TV, (TV*MAT_S11). 
+H1: There is a relationship between global score and mathematics score, written communication score, revenue, TV, (TV * MAT_S11).
+
+```{r}
 academic$variable <- (academic$tvf) * academic$MAT_S11
 
-model4=lm(academic$G_SC~academic$MAT_S11+academic$WC_PRO+academic$rv+academic$frf+academic$variable)
+model4=lm(academic$G_SC~academic$MAT_S11+academic$WC_PRO+academic$rv+academic$tvf+academic$variable)
 
 summary(model4)
 
 anova(model4)
 
-plot(model4)# Plots - first and third are the ones of interest for homocedasticity
-
-
-#Influential Outliers - Cook's distance
+#Cook's distance
 cooksd<-sort(cooks.distance(model4))
-# plot Cook's distance
-plot(cooksd, pch="*", cex=2, main="Influential Obs by Cooks distance")  
+
+plot(cooksd, pch="*", cex=2, main="Influential observation by Cooks distance")  
 abline(h = 4*mean(cooksd, na.rm=T), col="red")  # add cutoff line
 text(x=1:length(cooksd)+1, y=cooksd, labels=ifelse(cooksd>4*mean(cooksd, na.rm=T),names(cooksd),""), col="red")  # add labels
 
 
-#find rows related to influential observations
+sum((cooks.distance(model4))>4*mean(cooksd))
+#610 
+#610 observations in the population are outliers. 
+
 influential <- as.numeric(names(cooksd)[(cooksd > 4*mean(cooksd, na.rm=T))])  # influential row numbers
 stem(influential)
 head(academic[influential, ])  # influential observations.
 
 
-car::outlierTest(model4) # Bonferonni p-value for most extreme obs - Are there any cases where the outcome variable has an unusual variable for its predictor values?
+car::outlierTest(model4) 
+#1336, 7721, 10858, 2021, 173 are the outcome variables that have unusual variables for its predictor values. 
 
-car::leveragePlots(model4) # leverage plots
+car::leveragePlots(model4) 
 
+plot(model4,1)
+#Red line is horizontally drawn near 0, it indicates the presence of linear model. 
+
+#Homocedasticity 
+plot(model4, 3)
+#These plot helps us to identify the homoscedasticity of the model. Since the data is not completely random distribution of points throughout the range of X axis and flat red line, we can conclude that graph is homoscedasticity.
+#Also, the plot has horizontal line with equally spread of observations.
 
 #Create histogram and a density plot of the residuals
 plot(density(resid(model4))) 
 
-#Create a QQ plot qPlot(model, main="QQ Plot") #qq plot for studentized resid 
 car::qqPlot(model4, main="QQ Plot Model 4") #qq plot for studentized resid
 
 
@@ -695,4 +716,17 @@ vifmodel
 1/vifmodel
 
 ```
+*Reporting*
+Multiple linear regression was carried out to investigate the relationship between mathematics score, written communication score, revenue, TV, interaction term (TV*Maths score) and global score. There was a significant relationship between mathematics score and global score (p < .001), written communication and global score (p < .001), TV and global score (p < .001), and revenue and global score( p < .001).  No statistical significant relationship was found between interaction term and global score(p=.76) A significant regression equation was found (F(5,12405)= 3767, p < .05), with R2 of 0.6. 
 
+```{r}
+m1 <- lm(academic$G_SC~+academic$WC_PRO+academic$rv+academic$variable)
+
+vifmodel<-car::vif(m1)
+vifmodel
+#tolerance
+1/vifmodel
+
+```
+
+Huge difference in variance inflation factor was found when the variables that contributed to interaction term were eliminated. 
